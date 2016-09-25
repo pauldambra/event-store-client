@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -eu
+set -u
 
 # ensure that eventstore ends when this process does
 trap "kill 0" SIGINT
@@ -52,10 +52,10 @@ function main {
 
 	wait_for_server_to_start
 	
-	test_output=`npm test 2>&1` || echo $test_output
+	npm test
 
 	echo "all done!"
-	kill 0
+	killall eventstored
 }
 
 main
