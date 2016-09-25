@@ -2,6 +2,12 @@ Event Store Client
 ==================
 Author: Carey Bishop
 
+<div class="repo-badge">
+  <a href="#" id="status-image-popup" name="status-images" class="open-popup" title="Latest push build on default branch: ">
+    <img src="https://travis-ci.org/pauldambra/event-store-client.svg" alt="build:">
+  </a>
+</div>
+
 Connects to an [Event Store](http://geteventstore.com) server over TCP/IP, to send and receive event information.
 
 The Javascript API is intended to mimic the .Net API as closely as possible.
