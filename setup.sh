@@ -53,9 +53,10 @@ function main {
 	wait_for_server_to_start
 	
 	npm test
+	npm_result=$?
 
-	echo "all done!"
 	killall eventstored
+	exit $npm_result
 }
 
 main
