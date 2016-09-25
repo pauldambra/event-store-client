@@ -23,7 +23,7 @@ function setup_server {
 function start_server {
 	(
 		cd ./build/server
-		./eventstored -MemDb &> server.out.log &
+		./eventstored -MemDb --run-projections=SYSTEM &> server.out.log &
 	)
 }
 

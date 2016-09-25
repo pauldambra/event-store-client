@@ -50,7 +50,7 @@ describe('Connection', function() {
         });
     });
 
-    describe('Reading from a stream', function() {
+    describe('Reading from the stats stream', function() {
         it("should read 10 events from the stats stream backwards", function(done) {
             var options = {
                 host: defaultHostName,
@@ -59,7 +59,9 @@ describe('Connection', function() {
 
             var readEvents = 0;
 
-            var streamId = "$stats-0.0.0.0:2113";
+            var host = process.env.EVENTSTORE_HOST || "0.0.0.0"
+            var streamId = "$stats-" + host + ":2113";
+
             var fromEventNumber = -1;
             var maxCount = 10;
             var resolveLinkTos = false;
@@ -87,7 +89,9 @@ describe('Connection', function() {
 
             var readEvents = 0;
 
-            var streamId = "$stats-0.0.0.0:2113";
+            var host = process.env.EVENTSTORE_HOST || "0.0.0.0"
+            var streamId = "$stats-" + host + ":2113";
+
             var fromEventNumber = 0;
             var maxCount = 10;
             var resolveLinkTos = false;
