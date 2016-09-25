@@ -6,8 +6,7 @@ node_js:
 sudo: required
 dist: trusty
 env:
-  - EVENTSTORE_HOST="127.0.0.1"
-  - ES_DOWNLOAD_URL="http://download.geteventstore.com/binaries/EventStore-OSS-Ubuntu-14.04-v3.9.1.tar.gz"
+  - EVENTSTORE_HOST="127.0.0.1" ES_DOWNLOAD_URL="http://download.geteventstore.com/binaries/EventStore-OSS-Ubuntu-14.04-v3.9.1.tar.gz"
 install:
   - npm install
 script:
