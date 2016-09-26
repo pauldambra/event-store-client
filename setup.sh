@@ -50,7 +50,7 @@ function wait_for_server_to_start {
 	echo $stream_found
 	if ! [[ stream_found ]]
 		then
-			echo "dying here"
+			echo "error: could not read from stats stream to conform server is available"
 			exit 1
 	fi
 }
