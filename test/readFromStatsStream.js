@@ -23,8 +23,6 @@ var credentials = dbconn.credentials;
 
             var host = process.env.EVENTSTORE_HOST || "0.0.0.0"
             streamId = "$stats-" + host + ":2113";
-
-            console.log(streamId, 'using stream with id');
     	});
 
         it("should read 10 events from the stats stream backwards", function(done) {
@@ -36,7 +34,6 @@ var credentials = dbconn.credentials;
             });
 
             connection.readStreamEventsBackward(streamId, fromEventNumber, maxCount, resolveLinkTos, requireMaster, onEventAppeared, credentials, function (completed) {
-            	console.log(completed, 'completed');
                 assert.equal(completed.result, EventStoreClient.ReadStreamResult.Success,
                     "Expected a result code of Success, not " + EventStoreClient.ReadStreamResult.getName(completed.result)
                 );
@@ -56,7 +53,6 @@ var credentials = dbconn.credentials;
             });
 
             connection.readStreamEventsForward(streamId, fromEventNumber, maxCount, resolveLinkTos, requireMaster, onEventAppeared, credentials, function (completed) {
-            	console.log(completed, 'completed');
                 assert.equal(completed.result, EventStoreClient.ReadStreamResult.Success,
                     "Expected a result code of Success, not " + EventStoreClient.ReadStreamResult.getName(completed.result)
                 );
