@@ -10,4 +10,4 @@ env:
 install:
   - npm install
 script:
-  - ./setup.sh
+  - ./build.sh

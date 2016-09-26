@@ -182,8 +182,8 @@ Get the subscription ID of the underlying Event Store subscription, in order to 
 
 This library is built and tested with Travis CI. 
 
-To run locally run `EVENTSTORE_HOST=127.0.0.1 ./setup.sh`. 
+To run locally run `EVENTSTORE_HOST=127.0.0.1 ./build.sh`. 
 
 Currently this runs by default on Mac OSX. You can set the script to download the Ubuntu build
 
-`EVENTSTORE_HOST="127.0.0.1" ES_DOWNLOAD_URL="http://download.geteventstore.com/binaries/EventStore-OSS-Ubuntu-14.04-v3.9.1.tar.gz" ./setup.sh`
+`EVENTSTORE_HOST="127.0.0.1" ES_DOWNLOAD_URL="http://download.geteventstore.com/binaries/EventStore-OSS-Ubuntu-14.04-v3.9.1.tar.gz" ./build.sh`
