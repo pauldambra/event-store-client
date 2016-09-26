@@ -28,21 +28,31 @@ function start_server {
 }
 
 function get_eventstore_status {
-	curl -I -X GET -H "Accept:application/vnd.eventstore.atom+json" "http://127.0.0.1:2113/web/index.html" | head -n 1|cut -d$' ' -f2
+	curl -I -X GET -H "Accept:application/vnd.eventstore.atom+json" "http://127.0.0.1:2113/streams/\$stats-127.0.0.1:2113" -u admin:changeit | head -n 1|cut -d$' ' -f2
 }
 
 function wait_for_server_to_start {
-	for i in {1..5} 
+	local stream_found=false
+
+	for i in {1..10} 
 	do 
 	 status_code=$(get_eventstore_status)
 	 echo "got status code $status_code from server"
 	 if [ "$status_code" == "200" ]
 	 	then
+	 		stream_found=true
 	 		echo "server ready"
 	 		break  
 	 fi
 	 sleep 5
 	done
+
+	echo $stream_found
+	if ! [[ stream_found ]]
+		then
+			echo "dying here"
+			exit 1
+	fi
 }
 
 function main {
